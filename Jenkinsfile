@@ -1,26 +1,31 @@
 pipeline {
     agent any
     
+    parameters {
+        string(name: 'NAME', defaultValue: 'defaultName', description: 'Enter the name')
+        string(name: 'VERSION', defaultValue: '1.0', description: 'Enter the version')
+    }
+    
     stages {
 
         stage('Build') {
             steps {
-                // Add build steps here
-                echo 'Building...'
+                // Using the parameters in the build steps
+                echo "Building... Name: ${params.NAME}, Version: ${params.VERSION}"
             }
         }
         
         stage('Test') {
             steps {
-                // Add test steps here
-                echo 'Testing...'
+                // Using the parameters in the test steps
+                echo "Testing... Name: ${params.NAME}, Version: ${params.VERSION}"
             }
         }
         
         stage('Deploy') {
             steps {
-                // Add deploy steps here
-                echo 'Deploying...'
+                // Using the parameters in the deploy steps
+                echo "Deploying... Name: ${params.NAME}, Version: ${params.VERSION}"
             }
         }
     }
