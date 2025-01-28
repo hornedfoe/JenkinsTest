@@ -2,12 +2,7 @@ pipeline {
     agent any
     
     stages {
-        stage('Clone Repository') {
-            steps {
-                git 'https://your-repo-url.git'
-            }
-        }
-        
+
         stage('Build') {
             steps {
                 // Add build steps here
