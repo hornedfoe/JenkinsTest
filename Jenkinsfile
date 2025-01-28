@@ -31,9 +31,9 @@ pipeline {
                                 def parallelStages = [:]
             
                                 // Loop through the names and versions to create parallel stages
-                                for (int i = 0; i < names.size(); i++) {
-                                    def name = names[i].trim()
-                                    def version = versions[i].trim()
+                                for (int j = 0; j < names.size(); j++) {
+                                    def name = names[j].trim()
+                                    def version = versions[j].trim()
                                     
                                     // Add each parallel stage to the map
                                     parallelStages["Build ${name} ${version}"] = {
