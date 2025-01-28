@@ -25,8 +25,13 @@ pipeline {
                         // Add each parallel stage to the map
                         parallelStages["Build ${name} ${version}"] = {
                             stage("Build ${name} ${version}") {
-                                echo "Building... Name: ${name}, Version: ${version}"
-                                // Add your build, test, deploy steps here
+                                echo "Building... Name: ${name}, Version: ${version}"   
+                            }
+                            stage("Test ${name} ${version}") {
+                                echo "Testing... Name: ${name}, Version: ${version}"
+                            }
+                            stage("Deploy ${name} ${version}") {
+                                echo "Deploying... Name: ${name}, Version: ${version}"
                             }
                         }
                     }
