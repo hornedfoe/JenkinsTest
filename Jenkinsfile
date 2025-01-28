@@ -19,8 +19,8 @@ pipeline {
                     for (int i = 0; i < platforms.size(); i++) {
                       
                         def platform = platforms[i].trim()
-                        
-                        parallelPlatforms["${platform}"] = {
+                      
+                        steps {
                           
                             script {
                                 // Split the comma-separated parameters into lists
@@ -48,9 +48,8 @@ pipeline {
                                         }
                                     }
                                 }
-            
-                                // Run the stages in parallel
-                                parallel parallelStages
+                                
+                                parallelPlatforms["${platform}"] = parallelStages
                             }
                         }
                     }
